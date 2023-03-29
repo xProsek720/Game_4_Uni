@@ -1,4 +1,4 @@
-# Gane_4_Uni
+# Game_4_Uni
 
 ## To Compile You Will Need: ##
 - SFML
