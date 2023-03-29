@@ -396,3 +396,35 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+
+#CLion
+SFML/
+SFML-2.5.1/
+
+*.swp
+*.ninja
+.ninja*
+CMakeCache.txt
+CMakeFiles
+CMakeLists.txt
+cmake_install.cmake
+libskia.*
+example
+example.png
+include
+skia_compile_arguments.txt
+skia_link_arguments.txt
+
+cmake-build-debug/
+.idea/
+
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
