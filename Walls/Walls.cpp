@@ -37,7 +37,7 @@ void Walls::defaultVars()
 void Walls::update()
 {
     defaultVars();
-    std::cout << Size.x<<" - " << Size.y<< std::endl;
+    //std::cout << Size.x<<" - " << Size.y<< std::endl;
 }
 
 void Walls::render()
@@ -58,4 +58,8 @@ bool Walls::checkCollision(sf::RectangleShape player)
         collides = true;
     }
     return collides;
+}
+
+Walls* Walls::getPtr() {
+    return this;
 }

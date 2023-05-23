@@ -33,6 +33,8 @@ public:
 
     bool checkCollision(sf::RectangleShape player);
 
+    Walls* getPtr();
+
 
 };
 

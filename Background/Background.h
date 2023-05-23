@@ -26,6 +26,8 @@ public:
     void update();
     void render();
 
+    Background* getPtr();
+
 };
 
 #endif //GANE_4_UNI_IML_BACKGROUND_H

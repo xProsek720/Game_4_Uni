@@ -39,6 +39,8 @@ protected:
 
     sf::RenderWindow* getWindow();
 
+    Engine* getPtr();
+
 
 
 

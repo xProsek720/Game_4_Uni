@@ -46,3 +46,8 @@ void Background::render()
 {
     windowPtr->clear(backgroundColor);
 }
+
+Background* Background::getPtr()
+{
+    return this;
+}

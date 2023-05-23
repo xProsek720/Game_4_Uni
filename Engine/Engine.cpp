@@ -86,3 +86,7 @@ void Engine::gameStart()
     walls.defaultVars();
     this->windowPtr->setFramerateLimit(60);
 }
+
+Engine *Engine::getPtr() {
+    return this;
+}
