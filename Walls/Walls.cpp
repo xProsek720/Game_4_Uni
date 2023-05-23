@@ -37,11 +37,25 @@ void Walls::defaultVars()
 void Walls::update()
 {
     defaultVars();
-    std::cout << rPos.x<<" - " << Size.x<< std::endl;
+    std::cout << Size.x<<" - " << Size.y<< std::endl;
 }
 
 void Walls::render()
 {
     this->windowPtr->draw(rectLeft);
     this->windowPtr->draw(rectRight);
+}
+
+bool Walls::checkCollision(sf::RectangleShape player)
+{
+    bool collides = false;
+    if (rectLeft.getGlobalBounds().intersects(player.getGlobalBounds()))
+    {
+        collides = true;
+    }
+    if (rectRight.getGlobalBounds().intersects(player.getGlobalBounds()))
+    {
+        collides = true;
+    }
+    return collides;
 }

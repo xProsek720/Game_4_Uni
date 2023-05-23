@@ -21,10 +21,6 @@ Engine::~Engine()
 {
     std::cout << "ELO!";
 }
-void Engine::createWindow()
-{
-
-}
 
 sf::RenderWindow* Engine::getWindow()
 {
@@ -43,12 +39,11 @@ void Engine::gameLoop()
 {
     sf::RenderWindow MainWindow(sf::VideoMode(windowWidth, windowHeight, bitsPerPixel), title);
     this->windowPtr = &MainWindow;
-    loadClasses();
-
-    walls.defaultVars();
+    gameStart();
+    sf::Clock clock;
     while (MainWindow.isOpen())
     {
-
+        sf::Time deltaTime = clock.restart();
         sf::Event event;
 
         while (MainWindow.pollEvent(event))
@@ -58,11 +53,6 @@ void Engine::gameLoop()
                 MainWindow.close();
             }
 
-            sf::Clock Clock;
-            while (Clock.getElapsedTime().asMilliseconds() < 5.f)
-            {
-                //std::cout << Clock.getElapsedTime().asSeconds() << std::endl;
-            }
 
             //Tu miejsce na aktualizacje klatek
             update();
@@ -88,4 +78,11 @@ void Engine::render()
     bg.render();
     walls.render();
 
+}
+
+void Engine::gameStart()
+{
+    loadClasses();
+    walls.defaultVars();
+    this->windowPtr->setFramerateLimit(60);
 }

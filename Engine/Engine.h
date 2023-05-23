@@ -32,7 +32,7 @@ public:
 
 protected:
     void loadClasses();
-    void createWindow();
+    void gameStart();
     void gameLoop();
     void update();
     void render();

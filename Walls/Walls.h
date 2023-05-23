@@ -31,6 +31,8 @@ public:
     void update();
     void render();
 
+    bool checkCollision(sf::RectangleShape player);
+
 
 };
 
