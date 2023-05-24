@@ -7,10 +7,10 @@
 - [x] Make Project Template
 - [x] Make Game Class
 - [x] Make First Window
-- [ ] Make First Block
+- [x] Make First Block
 - [ ] Make Player
 - [ ] Make Sprites
-- [ ] Make World
+- [x] Make World
 - [ ] Make Wall Bouncing Effect
 - [ ] Make Score
 - [ ] Add BeatBox
