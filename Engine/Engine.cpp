@@ -33,6 +33,8 @@ void Engine::loadClasses()
     this->bg = bg;
     Walls walls(getWindow());
     this->walls = walls;
+    BlockManager bm(getWindow(), nullptr, 20);
+    this->bm = bm;
 }
 
 void Engine::gameLoop()
@@ -52,16 +54,17 @@ void Engine::gameLoop()
             {
                 MainWindow.close();
             }
+            //std::cout << event.type << std::endl;
 
 
-            //Tu miejsce na aktualizacje klatek
-            update();
-
-            //Tu miejsce na render klatek
-            render();
-            MainWindow.display();
 
         }
+        //Tu miejsce na aktualizacje klatek
+        update();
+
+        //Tu miejsce na render klatek
+        render();
+        MainWindow.display();
     }
 }
 
@@ -71,12 +74,14 @@ void Engine::update()
 {
     bg.update();
     walls.update();
+    bm.update();
 }
 
 void Engine::render()
 {
     bg.render();
     walls.render();
+    bm.render();
 
 }
 

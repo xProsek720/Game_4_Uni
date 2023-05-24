@@ -7,6 +7,8 @@
 #include "../includes/imports.h"
 #include "../Background/Background.h"
 #include "../Walls/Walls.h"
+#include "../Block/Block.h"
+#include "../BlockManager/BlockManager.h"
 
 #ifndef GANE_4_UNI_IML_ENGINE_H
 #define GANE_4_UNI_IML_ENGINE_H
@@ -18,6 +20,9 @@ private:
 
     Background bg = Background(nullptr);
     Walls walls = Walls(nullptr);
+    BlockManager bm = BlockManager(nullptr, nullptr, 10);
+
+
 
     int windowWidth;
     int windowHeight;

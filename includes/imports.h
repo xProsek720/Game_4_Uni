@@ -12,12 +12,16 @@
 #include "../Engine/Engine.h"
 #include "../Background/Background.h"
 #include "../Walls/Walls.h"
-
+#include "../Block/Block.h"
+#include "../BlockManager/BlockManager.h"
 
 //Z C++
 #include <iostream>
 #include <locale.h>
 #include <string>
+#include <random>
+#include <time.h>
+#include <vector>
 
 //Z SFML
 #include "SFML/Graphics.hpp"
