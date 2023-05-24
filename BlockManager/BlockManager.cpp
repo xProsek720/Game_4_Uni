@@ -122,7 +122,7 @@ void BlockManager::updateBlocks()
 {
     for (int i = 0; i < this->blocks.size(); ++i )
     {
-        //this->blocks[i].update();
+        this->blocks[i].update();
 
         //std::cout << std::endl << blocks[i].middle.getPosition().y;
         if(blocks[i].middle.getPosition().y > 920)

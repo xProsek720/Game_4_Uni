@@ -111,9 +111,9 @@ void Block::render()
     windowPtr->draw(this->left);
     windowPtr->draw(this->middle);
     windowPtr->draw(this->right);
-    this->left.setPosition(this->left.getPosition().x, this->left.getPosition().y +5);
-    this->middle.setPosition(this->middle.getPosition().x, this->middle.getPosition().y +5);
-    this->right.setPosition(this->right.getPosition().x, this->right.getPosition().y +5);
+//    this->left.setPosition(this->left.getPosition().x, this->left.getPosition().y +5);
+//    this->middle.setPosition(this->middle.getPosition().x, this->middle.getPosition().y +5);
+//    this->right.setPosition(this->right.getPosition().x, this->right.getPosition().y +5);
 
 }
 
