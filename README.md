@@ -8,7 +8,7 @@
 - [x] Make Game Class
 - [x] Make First Window
 - [x] Make First Block
-- [ ] Make Player
+- [X] Make Player
 - [ ] Make Sprites
 - [x] Make World
 - [ ] Make Wall Bouncing Effect

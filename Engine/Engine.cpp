@@ -35,6 +35,8 @@ void Engine::loadClasses()
     this->walls = walls;
     BlockManager bm(getWindow(), nullptr, 20);
     this->bm = bm;
+    Player player(getWindow());
+    this->player = player;
 }
 
 void Engine::gameLoop()
@@ -75,6 +77,7 @@ void Engine::update()
     bg.update();
     walls.update();
     bm.update();
+    player.update();
 }
 
 void Engine::render()
@@ -82,7 +85,7 @@ void Engine::render()
     bg.render();
     walls.render();
     bm.render();
-
+    player.render();
 }
 
 void Engine::gameStart()
