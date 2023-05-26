@@ -13,12 +13,14 @@ Engine::Engine(int windowWidth, int windowHeight, int bitsPerPixel, std::string 
     this->bitsPerPixel = bitsPerPixel;
     this->title = title;
 
+    std::srand(time(NULL));
 
     gameLoop();
 }
 
 Engine::~Engine()
 {
+    std::srand(time(NULL));
     std::cout << "ELO!";
 }
 
@@ -33,10 +35,12 @@ void Engine::loadClasses()
     this->bg = bg;
     Walls walls(getWindow());
     this->walls = walls;
-    BlockManager bm(getWindow(), nullptr, 20);
+    BlockManager bm(getWindow(), nullptr, nullptr, 20);
     this->bm = bm;
-    Player player(getWindow());
+    Player player = Player(walls.getPtr(), getWindow());
     this->player = player;
+    this->bm.setPlayerPtr(player.playerPtr());
+    this->bm.setPlayer(player.getPtr());
 }
 
 void Engine::gameLoop()
@@ -67,6 +71,13 @@ void Engine::gameLoop()
         //Tu miejsce na render klatek
         render();
         MainWindow.display();
+
+        if(this->firstTime)
+        {
+            this->bm.setPlayerPtr(player.playerPtr());
+            this->bm.setPlayer(player.getPtr());
+            this->firstTime = false;
+        }
     }
 }
 
@@ -86,6 +97,7 @@ void Engine::render()
     walls.render();
     bm.render();
     player.render();
+
 }
 
 void Engine::gameStart()

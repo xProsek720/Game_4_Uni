@@ -7,13 +7,13 @@
 
 //Jak dostane klase Player to zamienić tutaj playerPtr na klasa pointer
 
-BlockManager::BlockManager(sf::RenderWindow* windowPtr, sf::RectangleShape* playerPtr, int numOfMaxBlocks)
+BlockManager::BlockManager(sf::RenderWindow* windowPtr, sf::RectangleShape* playerPtr, Player* player, int numOfMaxBlocks)
 {
     this->windowPtr = windowPtr;
     this->playerPtr = playerPtr;
     this->numOfMaxBlocks = numOfMaxBlocks;
+    this->player = player;
 
-    std::srand(time(NULL));
 
 }
 
@@ -35,6 +35,28 @@ void BlockManager::update()
     if (this->blocks.size() < this->numOfMaxBlocks)
     {
         spawnBlock();
+    }
+
+    int tCount = 0;
+    int fCount = 0;
+    for (int i = 0; i < this->blocks.size(); ++i)
+    {
+        if (blocks[i].checkCollision(this->playerPtr) && this->playerPtr->getPosition().y + 25 < blocks[i].position.y)
+        {
+            tCount +=1;
+        }
+        else
+        {
+            fCount +=1;
+        }
+    }
+    if (tCount > 0)
+    {
+        this->player->colision = true;
+    }
+    else
+    {
+        this->player->colision = false;
     }
 
     updateBlocks();
@@ -131,4 +153,16 @@ void BlockManager::updateBlocks()
             blocks.erase(this->blocks.begin() + i);
         }
     }
+}
+
+void BlockManager::setPlayerPtr(sf::RectangleShape* playerPtr)
+{
+    this->playerPtr = playerPtr;
+
+}
+
+void BlockManager::setPlayer(Player *player)
+{
+    this->player = player;
+
 }

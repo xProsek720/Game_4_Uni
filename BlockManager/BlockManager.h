@@ -6,6 +6,8 @@
 #define GANE_4_UNI_IML_BLOCKMANAGER_H
 
 
+#include "../Player/Player.h"
+
 class BlockManager
         {
 private:
@@ -19,20 +21,25 @@ private:
     sf::RenderWindow* windowPtr;
     std::vector<Block> blocks;
 
+    Player* player;
+
 public:
 
-    BlockManager(sf::RenderWindow* windowPtr, sf::RectangleShape* playerPtr, int numOfMaxBlocks);
+    BlockManager(sf::RenderWindow* windowPtr, sf::RectangleShape* playerPtr, Player* player, int numOfMaxBlocks);
     ~BlockManager();
 
     void render();
     void update();
 
+    friend Block;
     Block createBlock(int xMinPos, int xMaxPos, int minBlockSize, int maxBlockSize);
 
     sf::Vector2f randomizeBlockPos(int from, int to);
     float randomizeBlockSize(int minSize, int maxSize);
     void spawnBlock();
     void updateBlocks();
+    void setPlayerPtr(sf::RectangleShape* playerPtr);
+    void setPlayer(Player* player);
 };
 
 

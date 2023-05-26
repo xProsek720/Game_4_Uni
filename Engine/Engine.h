@@ -21,10 +21,10 @@ private:
 
     Background bg = Background(nullptr);
     Walls walls = Walls(nullptr);
-    BlockManager bm = BlockManager(nullptr, nullptr, 10);
-    Player player = Player(*walls, )
+    BlockManager bm = BlockManager(nullptr, nullptr, nullptr, 10);
+    Player player = Player(nullptr, nullptr);
 
-
+    bool firstTime = true;
 
     int windowWidth;
     int windowHeight;

@@ -6,6 +6,9 @@
 #define GANE_4_UNI_IML_PLAYER_H
 
 #include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 
 class Player {
 
@@ -14,21 +17,25 @@ private:
 	sf::Sprite pSprite;
 	sf::Vector2f pPosition;
 	sf::Vector2f pSize;
-	sf::RectangleShape pRectShape;
-	float movementSpeed;
-
+	sf::RenderWindow* windowPtr;
 	void InitializeVariables();
 	void InitializeComponents();
 
 public:
-	Player(Walls* wallPtr);
-	virtual ~Player();
-
+    bool colision = true;
+    float movementSpeed;
+    sf::RectangleShape pRectShape;
+	Player(Walls* wallPtr, sf::RenderWindow* windowPtr);
+	~Player();
+    friend Block;
 	void update();
 	void render();
-	void drawPlayer(sf::Texture* texture);
+	void drawPlayer(sf::Texture texture);
 	void move();
 	Player* getPtr();
+    void createPlater();
+    sf::RectangleShape* playerPtr();
+
 };
 
 #endif // !GANE_4_UNI_IML_PLAYER_H
