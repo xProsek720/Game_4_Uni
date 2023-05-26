@@ -82,7 +82,7 @@ Block BlockManager::createBlock(int xMinPos, int xMaxPos, int minBlockSize, int 
     if (this->numOfBlocksSpawned%10 == 0)
     {
         std::cout <<std::endl<< this->numOfBlocksSpawned;
-        return Block(this->windowPtr, this->playerPtr, sf::Vector2f (212.f,(720) - (120 * this->blocks.size())), 1064);
+        return Block(this->windowPtr, this->playerPtr, this->player, sf::Vector2f (212.f,(720) - (120 * this->blocks.size())), 1061);
     }
     else
     {
@@ -99,14 +99,14 @@ Block BlockManager::createBlock(int xMinPos, int xMaxPos, int minBlockSize, int 
             float blockLen = 0;
             sf::Vector2f pos = sf::Vector2f(1.f, 1.f);
             float size = 0;
-            while ((blockLen < this->minBlockSize || blockLen > this->maxBlockSize) &&pos.x + size <300 && blocks.size() < this->numOfMaxBlocks)
+            while ((blockLen < this->minBlockSize || blockLen > this->maxBlockSize) &&pos.x + size <400 && blocks.size() < this->numOfMaxBlocks)
             {
                 pos = randomizeBlockPos(xMinPos, xMaxPos);
                 size = randomizeBlockSize(minBlockSize, maxBlockSize);
                 blockLen = pos.x + size;
             }
 
-            return Block(this->windowPtr, this->playerPtr, pos, size);
+            return Block(this->windowPtr, this->playerPtr, this->player, pos, size);
         }
         else
         {
@@ -128,7 +128,7 @@ Block BlockManager::createBlock(int xMinPos, int xMaxPos, int minBlockSize, int 
                 blockLen = pos.x + size;
             }
 
-            return Block(this->windowPtr, this->playerPtr, pos, size);
+            return Block(this->windowPtr, this->playerPtr, this->player, pos, size);
         }
     }
 }

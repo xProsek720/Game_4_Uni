@@ -6,12 +6,13 @@
 #include "Block.h"
 
 
-Block::Block(sf::RenderWindow* windowPtr, sf::RectangleShape* playerPtr, sf::Vector2f position, float sizeX)
+Block::Block(sf::RenderWindow* windowPtr, sf::RectangleShape* playerPtr, Player* player, sf::Vector2f position, float sizeX)
 {
     this->windowPtr = windowPtr;
     this->sizeX = sizeX;
     this->position = position;
     this->playerPtr = playerPtr;
+    this->player = player;
     //std::cout << std::endl << this->sizeX << " " << this->position.x;
     if (this->sizeX < minSizeX)
     {
@@ -155,9 +156,9 @@ void Block::worldMoving()
         //std::cout << "LOL1" <<std::endl;
 
         //1.2f zamienić na player speed ale jest zbyt późno
-        this->left.setPosition(this->left.getPosition().x, this->left.getPosition().y + 1.2f);
-        this->middle.setPosition(this->middle.getPosition().x, this->middle.getPosition().y + 1.2f);
-        this->right.setPosition(this->right.getPosition().x, this->right.getPosition().y + 1.2f);
+        this->left.setPosition(this->left.getPosition().x, this->left.getPosition().y + this->player->movementSpeed);
+        this->middle.setPosition(this->middle.getPosition().x, this->middle.getPosition().y + this->player->movementSpeed);
+        this->right.setPosition(this->right.getPosition().x, this->right.getPosition().y + this->player->movementSpeed);
         //this->position.y -= playerPtr->getPosition().y - lastPlayerY;
         this->lastPlayerY = playerPtr->getPosition().y;
 

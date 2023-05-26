@@ -6,6 +6,8 @@
 #define GANE_4_UNI_IML_BLOCK_H
 
 
+#include "../Player/Player.h"
+
 class Block {
 
 private:
@@ -24,7 +26,7 @@ private:
     sf::RenderWindow* windowPtr;
     sf::RectangleShape* playerPtr;
 
-
+    Player* player;
 
     bool playerWentThrough = false;
 public:
@@ -33,7 +35,7 @@ public:
     sf::RectangleShape left;
     sf::RectangleShape middle;
     sf::RectangleShape right;
-    Block(sf::RenderWindow* windowPtr, sf::RectangleShape* playerPtr, sf::Vector2f position, float sizeX);
+    Block(sf::RenderWindow* windowPtr, sf::RectangleShape* playerPtr, Player* player, sf::Vector2f position, float sizeX);
     ~Block();
 
 

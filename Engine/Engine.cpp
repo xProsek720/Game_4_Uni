@@ -35,7 +35,7 @@ void Engine::loadClasses()
     this->bg = bg;
     Walls walls(getWindow());
     this->walls = walls;
-    BlockManager bm(getWindow(), nullptr, nullptr, 20);
+    BlockManager bm(getWindow(), nullptr, nullptr, 21);
     this->bm = bm;
     Player player = Player(walls.getPtr(), getWindow());
     this->player = player;

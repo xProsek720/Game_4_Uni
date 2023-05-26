@@ -27,7 +27,6 @@ public:
     sf::RectangleShape pRectShape;
 	Player(Walls* wallPtr, sf::RenderWindow* windowPtr);
 	~Player();
-    friend Block;
 	void update();
 	void render();
 	void drawPlayer(sf::Texture texture);
