@@ -9,6 +9,7 @@
 #include "../Walls/Walls.h"
 #include "../Block/Block.h"
 #include "../BlockManager/BlockManager.h"
+#include "../Player/Player.h"
 
 #ifndef GANE_4_UNI_IML_ENGINE_H
 #define GANE_4_UNI_IML_ENGINE_H
@@ -20,9 +21,10 @@ private:
 
     Background bg = Background(nullptr);
     Walls walls = Walls(nullptr);
-    BlockManager bm = BlockManager(nullptr, nullptr, 10);
+    BlockManager bm = BlockManager(nullptr, nullptr, nullptr, 10);
+    Player player = Player(nullptr, nullptr);
 
-
+    bool firstTime = true;
 
     int windowWidth;
     int windowHeight;

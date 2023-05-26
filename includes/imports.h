@@ -14,6 +14,7 @@
 #include "../Walls/Walls.h"
 #include "../Block/Block.h"
 #include "../BlockManager/BlockManager.h"
+#include "../Player/Player.h"
 
 //Z C++
 #include <iostream>

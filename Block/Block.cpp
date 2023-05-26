@@ -79,7 +79,7 @@ Block::~Block()
 
 void Block::update()
 {
-//    worldMoving();
+    worldMoving();
 //    if (checkCollision(playerPtr))
 //    {
 //        if (playerPtr->getPosition().y > (position.y + sizeY))
@@ -101,7 +101,6 @@ void Block::update()
 //    }
 
 
-
     //Implementacja ruchu góra dół gdy gracz skacze
 }
 
@@ -111,24 +110,22 @@ void Block::render()
     windowPtr->draw(this->left);
     windowPtr->draw(this->middle);
     windowPtr->draw(this->right);
-//    this->left.setPosition(this->left.getPosition().x, this->left.getPosition().y +5);
-//    this->middle.setPosition(this->middle.getPosition().x, this->middle.getPosition().y +5);
-//    this->right.setPosition(this->right.getPosition().x, this->right.getPosition().y +5);
 
 }
 
 bool Block::checkCollision(sf::RectangleShape *player)
 {
     bool colided = false;
-    if (left.getGlobalBounds().intersects(player->getGlobalBounds()))
+    if (this->left.getGlobalBounds().intersects(player->getGlobalBounds()))
+    {
+        colided = true;
+
+    }
+    if (this->middle.getGlobalBounds().intersects(player->getGlobalBounds()))
     {
         colided = true;
     }
-    if (middle.getGlobalBounds().intersects(player->getGlobalBounds()))
-    {
-        colided = true;
-    }
-    if (right.getGlobalBounds().intersects(player->getGlobalBounds()))
+    if (this->right.getGlobalBounds().intersects(player->getGlobalBounds()))
     {
         colided = true;
     }
@@ -151,17 +148,65 @@ void Block::createBlock()
 
 void Block::worldMoving()
 {
-    if (playerPtr->getPosition().y > lastPlayerY)
-    {
-        this->position.y -= playerPtr->getPosition().y - lastPlayerY;
-        this->lastPlayerY = playerPtr->getPosition().y;
-    }
-
+  
+    //std::cout << this->lastPlayerY << std::endl;
     if (playerPtr->getPosition().y < lastPlayerY)
     {
-        this->position.y += playerPtr->getPosition().y - lastPlayerY;
+        //std::cout << "LOL1" <<std::endl;
+
+        //1.2f zamienić na player speed ale jest zbyt późno
+        this->left.setPosition(this->left.getPosition().x, this->left.getPosition().y + 1.2f);
+        this->middle.setPosition(this->middle.getPosition().x, this->middle.getPosition().y + 1.2f);
+        this->right.setPosition(this->right.getPosition().x, this->right.getPosition().y + 1.2f);
+        //this->position.y -= playerPtr->getPosition().y - lastPlayerY;
+        this->lastPlayerY = playerPtr->getPosition().y;
+
+    }
+//    else if (playerPtr->getPosition().y < 720/3)
+//    {
+//        //1.2f zamienić na player speed ale jest zbyt późno
+//        this->left.setPosition(this->left.getPosition().x, this->left.getPosition().y + 2.2f);
+//        this->middle.setPosition(this->middle.getPosition().x, this->middle.getPosition().y + 2.2f);
+//        this->right.setPosition(this->right.getPosition().x, this->right.getPosition().y + 2.2f);
+//        //this->position.y -= playerPtr->getPosition().y - lastPlayerY;
+//        this->playerPtr->move(0, 1.f);
+//        this->lastPlayerY = playerPtr->getPosition().y;
+//    }
+//    else if (playerPtr->getPosition().y < 720/2)
+//    {
+//        //1.2f zamienić na player speed ale jest zbyt późno
+//        this->left.setPosition(this->left.getPosition().x, this->left.getPosition().y + 2.2f);
+//        this->middle.setPosition(this->middle.getPosition().x, this->middle.getPosition().y + 2.2f);
+//        this->right.setPosition(this->right.getPosition().x, this->right.getPosition().y + 2.2f);
+//        //this->position.y -= playerPtr->getPosition().y - lastPlayerY;
+//        this->playerPtr->move(0, 1.f);
+//        this->lastPlayerY = playerPtr->getPosition().y;
+//    }
+    if (playerPtr->getPosition().y > lastPlayerY)
+    {
+//        //std::cout << "LOL2" <<std::endl;
+//
+//        this->left.setPosition(this->left.getPosition().x, this->left.getPosition().y - 1.2f);
+//        this->middle.setPosition(this->middle.getPosition().x, this->middle.getPosition().y - 1.2f);
+//        this->right.setPosition(this->right.getPosition().x, this->right.getPosition().y - 1.2f);
+//
+//        //this->position.y += playerPtr->getPosition().y - lastPlayerY;
         this->lastPlayerY = playerPtr->getPosition().y;
     }
 
+
+    //W DÓŁ nie potrzebne
+//    if (playerPtr->getPosition().y > lastPlayerY)
+//    {
+//        //std::cout << "LOL2" <<std::endl;
+//
+//        this->left.setPosition(this->left.getPosition().x, this->left.getPosition().y - 1.2f);
+//        this->middle.setPosition(this->middle.getPosition().x, this->middle.getPosition().y - 1.2f);
+//        this->right.setPosition(this->right.getPosition().x, this->right.getPosition().y - 1.2f);
+//
+//        //this->position.y += playerPtr->getPosition().y - lastPlayerY;
+//        this->lastPlayerY = playerPtr->getPosition().y;
+//    }
+    this->position = middle.getPosition();
 
 }
