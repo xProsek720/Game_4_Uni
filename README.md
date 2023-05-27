@@ -9,9 +9,15 @@
 - [x] Make First Window
 - [x] Make First Block
 - [X] Make Player
-- [ ] Make Sprites
 - [x] Make World
+- [x] Make World going down when Player jumps
+- [ ] Make World going down when game starts
 - [ ] Make Wall Bouncing Effect
+- [ ] Make Sprites
 - [ ] Make Score
 - [ ] Add BeatBox
+- [ ] Give that game to a tester
+- [ ] Compile for Linux
+- [ ] Compile for Windows
+- [ ] Compile for OSX
 - [ ] ...
