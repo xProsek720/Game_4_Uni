@@ -23,6 +23,8 @@
 #include <random>
 #include <time.h>
 #include <vector>
+#include <thread>
+#include <chrono>
 
 //Z SFML
 #include "SFML/Graphics.hpp"

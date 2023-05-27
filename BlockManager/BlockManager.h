@@ -7,23 +7,29 @@
 
 
 #include "../Player/Player.h"
+#include "../Block/Block.h"
 
 class BlockManager
         {
 private:
-    int minBlockSize;
+    int minBlockSize = 106;
     int maxBlockSize;
     int xMinPos;
     int xMaxPos;
     int numOfBlocksSpawned = 0;
     int numOfMaxBlocks;
+    float lastPlayerY = 720;
     sf::RectangleShape* playerPtr;
     sf::RenderWindow* windowPtr;
-    std::vector<Block> blocks;
 
+    std::vector<Block> blocks;
+    bool letsScroll = false;
+    bool firstBlock = true;
     Player* player;
 
+
 public:
+
 
     BlockManager(sf::RenderWindow* windowPtr, sf::RectangleShape* playerPtr, Player* player, int numOfMaxBlocks);
     ~BlockManager();
@@ -40,6 +46,10 @@ public:
     void updateBlocks();
     void setPlayerPtr(sf::RectangleShape* playerPtr);
     void setPlayer(Player* player);
+    void moveAllBlocks(float scrollSpeed, float scrollSpeed2);
+    void superScroll();
+    void worldMoving();
+
 };
 
 

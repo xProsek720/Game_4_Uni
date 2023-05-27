@@ -27,9 +27,10 @@ private:
     sf::RectangleShape* playerPtr;
 
     Player* player;
-
+    bool letsScroll = false;
     bool playerWentThrough = false;
 public:
+
 
     sf::Vector2f position;
     sf::RectangleShape left;
@@ -45,6 +46,9 @@ public:
     void createBlock();
 
     void worldMoving();
+    void superScroll();
+
+    Block* getPtr();
 
 };
 

@@ -13,7 +13,9 @@ Engine::Engine(int windowWidth, int windowHeight, int bitsPerPixel, std::string 
     this->bitsPerPixel = bitsPerPixel;
     this->title = title;
 
-    std::srand(time(NULL));
+//    std::srand(time(NULL));
+    //DO genererowania mapy
+    std::srand(1337);
 
     gameLoop();
 }
@@ -35,7 +37,7 @@ void Engine::loadClasses()
     this->bg = bg;
     Walls walls(getWindow());
     this->walls = walls;
-    BlockManager bm(getWindow(), nullptr, nullptr, 21);
+    BlockManager bm(getWindow(), nullptr, nullptr, 11);
     this->bm = bm;
     Player player = Player(walls.getPtr(), getWindow());
     this->player = player;

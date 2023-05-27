@@ -80,7 +80,8 @@ Block::~Block()
 
 void Block::update()
 {
-    worldMoving();
+    this->position = middle.getPosition();
+//    worldMoving();
 //    if (checkCollision(playerPtr))
 //    {
 //        if (playerPtr->getPosition().y > (position.y + sizeY))
@@ -100,7 +101,7 @@ void Block::update()
 //            // }
 //        }
 //    }
-
+    //superScroll();
 
     //Implementacja ruchu góra dół gdy gracz skacze
 }
@@ -149,20 +150,10 @@ void Block::createBlock()
 
 void Block::worldMoving()
 {
-  
+
+
     //std::cout << this->lastPlayerY << std::endl;
-    if (playerPtr->getPosition().y < lastPlayerY)
-    {
-        //std::cout << "LOL1" <<std::endl;
 
-        //1.2f zamienić na player speed ale jest zbyt późno
-        this->left.setPosition(this->left.getPosition().x, this->left.getPosition().y + this->player->movementSpeed);
-        this->middle.setPosition(this->middle.getPosition().x, this->middle.getPosition().y + this->player->movementSpeed);
-        this->right.setPosition(this->right.getPosition().x, this->right.getPosition().y + this->player->movementSpeed);
-        //this->position.y -= playerPtr->getPosition().y - lastPlayerY;
-        this->lastPlayerY = playerPtr->getPosition().y;
-
-    }
 //    else if (playerPtr->getPosition().y < 720/3)
 //    {
 //        //1.2f zamienić na player speed ale jest zbyt późno
@@ -183,6 +174,18 @@ void Block::worldMoving()
 //        this->playerPtr->move(0, 1.f);
 //        this->lastPlayerY = playerPtr->getPosition().y;
 //    }
+    if (playerPtr->getPosition().y < lastPlayerY)
+    {
+        //std::cout << "LOL1" <<std::endl;
+
+        //1.2f zamienić na player speed ale jest zbyt późno
+        this->left.setPosition(this->left.getPosition().x, this->left.getPosition().y + this->player->movementSpeed);
+        this->middle.setPosition(this->middle.getPosition().x, this->middle.getPosition().y + this->player->movementSpeed);
+        this->right.setPosition(this->right.getPosition().x, this->right.getPosition().y + this->player->movementSpeed);
+        //this->position.y -= playerPtr->getPosition().y - lastPlayerY;
+        this->lastPlayerY = playerPtr->getPosition().y;
+
+    }
     if (playerPtr->getPosition().y > lastPlayerY)
     {
 //        //std::cout << "LOL2" <<std::endl;
@@ -194,7 +197,7 @@ void Block::worldMoving()
 //        //this->position.y += playerPtr->getPosition().y - lastPlayerY;
         this->lastPlayerY = playerPtr->getPosition().y;
     }
-
+    this->position = middle.getPosition();
 
     //W DÓŁ nie potrzebne
 //    if (playerPtr->getPosition().y > lastPlayerY)
@@ -208,6 +211,16 @@ void Block::worldMoving()
 //        //this->position.y += playerPtr->getPosition().y - lastPlayerY;
 //        this->lastPlayerY = playerPtr->getPosition().y;
 //    }
-    this->position = middle.getPosition();
 
 }
+
+void Block::superScroll()
+{
+    int l = 0;
+
+}
+
+Block *Block::getPtr() {
+    return this;
+}
+
