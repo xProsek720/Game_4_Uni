@@ -20,6 +20,7 @@ private:
 	sf::RenderWindow* windowPtr;
 	void InitializeVariables();
 	void InitializeComponents();
+    Walls* wallPtr;
 
 public:
     bool colision = true;

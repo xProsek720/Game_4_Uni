@@ -8,6 +8,7 @@
 
 #include <SFML/Graphics/RectangleShape.hpp>
 
+
 class Walls {
 
 private:
@@ -27,11 +28,13 @@ public:
     Walls(sf::RenderWindow* windowPtr);
     ~Walls();
 
+
     void defaultVars();
     void update();
     void render();
 
-    bool checkCollision(sf::RectangleShape player);
+    bool checkCollisionLeft(sf::RectangleShape player);
+    bool checkCollisionRight(sf::RectangleShape player);
 
     Walls* getPtr();
 

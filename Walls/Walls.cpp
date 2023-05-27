@@ -46,16 +46,26 @@ void Walls::render()
     this->windowPtr->draw(rectRight);
 }
 
-bool Walls::checkCollision(sf::RectangleShape player)
+bool Walls::checkCollisionLeft(sf::RectangleShape player)
 {
     bool collides = false;
-    if (rectLeft.getGlobalBounds().intersects(player.getGlobalBounds()))
+    if (player.getGlobalBounds().intersects(this->rectLeft.getGlobalBounds()))
     {
-        collides = true;
+        //std::cout << "LOLO" <<player.getPosition().x << std::endl;
+        return true;
+        player.setPosition(player.getPosition().x + 0.1f, player.getPosition().y);
     }
-    if (rectRight.getGlobalBounds().intersects(player.getGlobalBounds()))
+    return collides;
+}
+
+bool Walls::checkCollisionRight(sf::RectangleShape player)
+{
+    bool collides = false;
+    if (this->rectRight.getGlobalBounds().intersects(player.getGlobalBounds()))
     {
-        collides = true;
+        //std::cout << "LOLO2" <<player.getPosition().x << std::endl;
+        return true;
+        player.setPosition(player.getPosition().x - 0.1f, player.getPosition().y);
     }
     return collides;
 }

@@ -16,10 +16,11 @@ void Player::InitializeComponents()
 
 Player::Player(Walls* wallPtr, sf::RenderWindow* windowPtr)
 {
-	this->InitializeVariables();
-	this->InitializeComponents();
-	this->pRectShape.setPosition(this->pPosition);
+    this->wallPtr = wallPtr;
     this->windowPtr = windowPtr;
+    this->InitializeVariables();
+    this->InitializeComponents();
+    this->pRectShape.setPosition(this->pPosition);
     createPlater();
 }
 
@@ -58,11 +59,11 @@ void Player::drawPlayer(sf::Texture texture)
 
 void Player::move()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && this->wallPtr->checkCollisionLeft(this->pRectShape))
 	{
 		this->pRectShape.move(- this->movementSpeed, 0.f);
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && this->wallPtr->checkCollisionRight(this->pRectShape))
 	{
 		this->pRectShape.move(+ this->movementSpeed, 0.f);
 	}
